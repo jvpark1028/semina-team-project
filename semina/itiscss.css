@@ -1,0 +1,61 @@
+.artistintroduce-box {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 8px;
+    display: none;
+}
+h1 {
+    color: green;
+    font-size: 100px;
+    text-align: center;
+}
+body {
+    background-image: url('https://cafeptthumb-phinf.pstatic.net/MjAyNDA3MTRfMjMx/MDAxNzIwOTMyNTE0Mzcy.FWLJvfjLDbpwyrsYWRMa0z0YDmTeSfnxopp4VaPc3FQg.OppanWeOfGRsvQLMXpYTjykw-9SVRqZgmkrqTi_ddT0g.PNG/hukoh.PNG?type=w800');
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+}
+.social-links {
+    text-align: left;
+    margin-top: 20px;
+}
+.social-links a {
+display: inline-block;
+    margin: 0 10px;
+    vertical-align: middle;
+}
+.social-links img {
+    height: 25px;
+    vertical-align: middle;
+}
+.horizontal-line {
+    margin-top: 20px;
+    border-top: 1px solid black;
+}
+.albumimage1 {
+    text-align: left;
+}
+.albumimage2 {
+    text-align: center;
+}
+.albumimage3{
+    text-align: right;
+}
+.albumimage {
+    height: 180px;
+    width: 180px;
+}
+h2 {
+    width: 180px;
+    font-size: smaller;
+}
+.left {
+    text-align: left;
+}
+.center {
+    text-align: center;
+}
+.right {
+    text-align: right;
+}
