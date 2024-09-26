@@ -3,7 +3,7 @@ body {
     display: flex;
     height: 100vh;
     font-family: Arial, sans-serif;
-    background-image: url('/Users/jvpark/Downloads/baba.jpg');
+    background-image: url('/Users/jvpark/Downloads/bababa.jpg');
     background-size: cover;
     background-repeat: no-repeat; 
     background-attachment: fixed;
@@ -35,4 +35,5 @@ button:hover {
 }
 h1 {
     font-size: 150px;
+    color: blanchedalmond;
 }
