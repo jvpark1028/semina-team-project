@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap');
+body {
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-image: url('/Users/jvpark/Downloads/baba.jpg');
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    align-items: center;
+}
+button {
+    padding: 15px;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #474747;
+    color: white;
+    transition: background-color 0.3s;
+    height: 45px;
+    flex: 1; /* 버튼을 동일한 비율로 늘리기 */
+    margin: 0 10px; /* 버튼 사이의 여백 */
+    opacity: 0.9;
+}
+button:hover {
+    background-color: #000000;
+}
+.button-container {
+
+    justify-content: space-between; /* 버튼 사이의 간격을 동일하게 */
+    width: 100%; 
+    text-align: right;
+    margin: 50px;
+}
+h1 {
+    font-size: 150px;
+}

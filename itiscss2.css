@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap');
+div {
+    text-align: center;
+    margin: 0 auto;
+    align-items: center;
+    overflow:hidden;
+} /* div 설정 */
+a {
+    margin: 0px 10px;
+} /* 공백 */
+.blank {
+    width: 10px;
+} /* 공백 */
+button {
+    width: 88px;
+} /* 버튼 크기 */
+.social-links {
+    text-align: left;
+    margin-top: 20px;
+} /* 링크들 설정 */
+.social-links a {
+    display: inline-block;
+    margin: 0 10px;
+    vertical-align: middle;
+} /* 링크들 상세 설정 */
+.social-links img {
+    height: 25px;
+    vertical-align: middle;
+} /* 수평선 */
+.horizontal-line {
+    margin-top: 20px;
+    border-top: 1px solid black;
+} /*  */
+h2 {
+    width: 180px;
+    font-size: smaller; 
+} /* 부주제 설정 */
+h1 {
+    font-size: 100px;
+    text-align: center;
+    color: green;
+} /* 제목 크기 설정 */
+body {
+    background-color: white;
+} /* 배경 설정 */
+.explain {
+    font-size: 20px;
+} /* 설명에 쓰이는 말 크기 설정 */
+.plain {
+    width: 180px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    display: inline-block;
+} /* 내가 구현하려는 모양을 만들 때 필요한 세부사항들 설정. 크기 및 덩어리 종류 설정 */
+.albumimage {
+    height: 180px;
+    width: 180px;
+    overflow: hidden;
+} /* 앨범 이미지 크기 설정 */
+p {
+    text-align: center;
+    font-size: 25px;
+} /* p태그 설정 */
+.fixed-div {
+    position: fixed; 
+    top: 50%;      
+    left: 25%;
+    transform: translate(-50%, -50%); 
+    z-index: 1000;  
+    display: none;
+    background-color: gray;
+    color: black;
+    border-radius: 4px;
+    display: none;
+    width: 180px;
+    opacity: 0.9;
+} /* 노래 추천 항목이 스크롤에도 영향을 받지 않게 설정 */

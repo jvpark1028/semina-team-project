@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap');
+.artistintroduce-box {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 8px;
+    display: none;
+    opacity: 0.8;
+    width: 140px;
+} /* 곡 설명 때 필요한 설정 */
+h1 {
+    color: green;
+    font-size: 100px;
+    text-align: center;
+}
+body {
+    background-image: url('https://cafeptthumb-phinf.pstatic.net/MjAyNDA3MjZfODcg/MDAxNzIxOTc2Mjg3NjUx.R0VXM0MqNQnArZWE88PSVmFMJ6ZbLX_7K9MwTyBhg4Ig.d50xcL98g-P_P_7JZq4hCc_WKxcnrDhIj_yYYBqgrQ8g.PNG/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2024-07-26_%EC%98%A4%ED%9B%84_3.43.43.png?type=w1600');
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+}
+.social-links {
+    text-align: left;
+    margin-top: 20px;
+}
+.social-links a {
+    display: inline-block;
+    margin: 0 10px;
+    vertical-align: middle;
+}
+.social-links img {
+    height: 25px;
+    vertical-align: middle;
+}
+.horizontal-line {
+    margin-top: 20px;
+    border-top: 1px solid black;
+}
+.albumimage {
+    height: 180px;
+    width: 180px;
+}
+h2 {
+    width: 180px;
+    font-size: smaller; 
+}
+
+.mti {
+    display: inline-block;
+}
+button {
+    width: 90px;
+}
+.flex-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-bottom: 180px;
+} /* 내가 구현하려는 모양을 만들기 위한 div에 사용할 설정 */
