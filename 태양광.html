@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>태양광 발전 효율 예측</title>
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background:  #e0f7fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        .card {
+            background: white;
+            padding: 40px 50px;
+            border-radius: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #00796b;
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+
+        input {
+            width: 100px;
+            padding: 10px;
+            margin: 10px 5px;
+            border-radius: 15px;
+            border: 1px solid #b2dfdb;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 20px;
+            background-color: #26a69a;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background-color: #00796b;
+        }
+
+        #result {
+            margin-top: 25px;
+            font-size: 18px;
+            color: #004d40;
+            background: #e0f2f1;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .icon {
+            font-size: 22px;
+            margin-right: 8px;
+        }
+
+        .summary p {
+            font-size: 14px;
+            text-align: left;
+            line-height: 1.5;
+        }
+
+        .note p {
+            font-size: 13px;
+            color: #004d40;
+            text-align: left;
+            line-height: 1.4;
+            background: #e0f2f1;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>태양광 발전 효율 예측</h2>
+    <div>
+        <span class="icon"></span>온도(°C): <input id="temp" type="number" placeholder="25">
+    </div>
+    <div>
+        <span class="icon"></span>습도(%): <input id="humid" type="number" placeholder="40">
+    </div>
+    <button onclick="calculate()">계산하기</button>
+    <div id="result"></div>
+</div>
+
+<div class="card summary">
+    <h2>태양광 발전 효율 영향 요약</h2>
+    <p>
+        <strong>기온:</strong> 태양전지 내부 전자 이동은 온도에 따라 달라집니다.<br>
+        20~25°C 범위에서 전자 이동과 밴드갭 조건이 최적화되어 발전 효율이 가장 높습니다.<br>
+        23°C 이하에서는 전자 이동이 느려 효율이 낮아지고, 25°C 이상에서는 밴드갭이 좁아져 전압 감소와 전자-정공 재결합 증가로 효율이 점차 떨어집니다.<br><br>
+        <strong>습도:</strong> 습도가 높으면 공기 중 수증기로 인해 태양광이 산란·흡수되어 전지 표면에 도달하는 광자가 감소합니다.<br>
+        또한 표면에 수막이 형성되거나 접합부 전기적 잡음이 발생해 전자 이동이 방해되고 내부 누설 전류가 생겨 효율이 감소합니다.<br>
+        건조한 환경에서는 광흡수와 전자 이동이 원활하여 효율이 높게 유지됩니다.
+    </p>
+</div>
+
+<div class="card note">
+    <h2>산출 방법</h2>
+    <p>
+        - 태양광 발전의 평균 효율인 20%를 효율의 최댓값이라고 가정했습니다.<br>
+
+        - 습도가 50% 이상일수록 발전 효율이 점점 낮아집니다.<br>
+        - 온도가 23~25°C 범위에서 가장 높은 효율을 가지며, 이 최적의 온도보다 낮거나 높을수록 효율이 감소합니다.<br>
+        - 효율 변화는 온도와 습도의 상호작용으로 결정되며, 최적 조건에서 최대 효율을 유지하도록 설계되어 있습니다.
+    </p>
+</div>
+
+<script>
+function calculate() {
+    let temp = parseFloat(document.getElementById("temp").value);
+    let humid = parseFloat(document.getElementById("humid").value);
+
+    let e = 20.0;  
+    let temp_e = 0.0045;
+    let humid_e = 0.002;
+
+    if (temp < 23) {
+        e -= (23 - temp) * temp_e * 20;
+    } else if (temp > 25) {
+        e -= (temp - 25) * temp_e * 20; 
+    }
+
+    if (humid > 50) {
+        e -= (humid - 50) * humid_e * 20;
+    }
+
+    e = Math.max(5, Math.min(e, 22));
+
+    let temp_ = "";
+    if (temp < 23) {
+        temp_ = `온도가 ${temp}°C로 낮아 효율이 감소합니다.`;
+    } else if (temp > 25) {
+        temp_ = `온도가 ${temp}°C로 높아 효율이 감소합니다.`;
+    } else {
+        temp_ = `온도가 최적 범위입니다.`;
+    }
+
+    let humid_ = "";
+    if (humid > 50) {
+        humid_ = `습도가 ${humid}%로 높아 광흡수가 방해됩니다.`;
+    } else {
+        humid_ = `습도가 적당하여 효율이 유지됩니다.`;
+    }
+
+    document.getElementById("result").innerHTML = `<strong>${e.toFixed(1)}%</strong><br>${temp_}<br>${humid_}`;
+}
+</script>
+
+</body>
+</html>
